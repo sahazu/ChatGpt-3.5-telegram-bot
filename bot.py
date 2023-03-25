@@ -49,7 +49,7 @@ async def start(message: types.Message):
         messages = messages,
     )
     await bot.delete_message(chat_id=sent_message.chat.id, message_id=sent_message.message_id)
-    await message.answer(response['choices'][0]['message']['content'])
+    await message.answer(response['choices'][0]['message']['content'], parse_mode="Markdown")
 
 @dp.message_handler()
 async def prompt(message: types.Message):
@@ -62,7 +62,7 @@ async def prompt(message: types.Message):
             messages = messages,
         )
         await bot.delete_message(chat_id=sent_message.chat.id, message_id=sent_message.message_id)
-        await message.answer(response['choices'][0]['message']['content'])
+        await message.answer(response['choices'][0]['message']['content'], parse_mode="Markdown")
 
 
 
